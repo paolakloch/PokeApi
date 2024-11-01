@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon API</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      p {
+        margin: 2px;
+      }
+
+      .container {
+        margin-top: 50px;
+      }
+      .pokemon-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        list-style-type: none; /* Remove bullet points */
+        padding: 0;
+      }
+      .pokemon-item {
+        background-color: #e9ecef;
+        border-radius: 5px;
+        padding: 10px;
+        width: 355px;
+      }
+      .loading-message,
+      .error-message {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Pokémon API</h1>
+      <div style="display: flex; gap: 10px" class="mt-4 row">
+        <input
+          type="text"
+          id="inputPokeName"
+          class="form-control col-10 ml-3"
+          placeholder="Enter Pokémon name"
+        />
+        <button id="fetchPokeName" class="btn btn-success col-1">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="btn btn-primary" value="Reload Page" onClick="refreshPage()">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+        <div id="pokeName" class="mt-2"></div>
+      </div>
+      <ul id="pokeList" class="pokemon-list mt-4"></ul>
+
+      <div class="text-center mb-5">
+        <button id="prevPage" class="btn btn-primary">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="nextPage" class="btn btn-primary">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="api.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
